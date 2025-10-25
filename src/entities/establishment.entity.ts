@@ -10,9 +10,9 @@ import {
 } from 'typeorm';
 import { User } from './users.entity';
 
-@Entity('restaurants')
-export class Restaurant {
-  @PrimaryColumn('text', { name: 'restaurant_id' })
+@Entity('establishments')
+export class Establishment {
+  @PrimaryColumn('text', { name: 'establishment_id' })
   id: string = createId();
 
   @Column('text', { name: 'name', nullable: false })

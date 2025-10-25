@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { Restaurant } from './entities/restaurant.entity';
+import { Establishment } from './entities/establishment.entity';
 import { User } from './entities/users.entity';
 import { typeOrmConfig } from './infra/db/providers/typeorm.config';
 import { SeedDatabase } from './infra/db/seed';
@@ -12,9 +10,9 @@ import { SeedDatabase } from './infra/db/seed';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot(typeOrmConfig),
-    TypeOrmModule.forFeature([User, Restaurant]),
+    TypeOrmModule.forFeature([User, Establishment]),
   ],
-  controllers: [AppController],
-  providers: [AppService, SeedDatabase],
+  controllers: [],
+  providers: [SeedDatabase],
 })
 export class AppModule {}
